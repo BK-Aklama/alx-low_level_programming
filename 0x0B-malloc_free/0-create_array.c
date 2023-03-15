@@ -1,46 +1,25 @@
 #include "main.h"
 		
 #include <stdlib.h>
-		
+
 /**
-		
- * create_array - create array of size size and assign char c
-		
- * @size: size of array
-		
- * @c: char to assign
-		
- * Description: creat array of size size and assign char c
-		
- * Return: pointer to array, NULL if fail
-		
+ * create_char_array - creates an array of chars and initializes it
+ * with a specific char
+ * @length: the length of the array to be created
+ * @initial_value: the initial value to be assigned to each element
  *
-		
+ * Return: a pointer to the newly created char array
  */
-		
-char *create_array(unsigned int size, char c)
-		
+char *create_char_array(int length, char initial_value)
 {
-		
-	char *str;
-		
-	unsigned int i;
-		
+  char *array = malloc(sizeof(char) * length);
+  int i;
 
-		
-	str = malloc(sizeof(char) * size);
-		
-	if (size == 0 || str == NULL)
-		
-		return (NULL);
-		
+  if (array == NULL)
+    return NULL;
 
-		
-	for (i = 0; i < size; i++)
-		
-		str[i] = c;
-		
-	return (str);
-		
+  for (i = 0; i < length; i++)
+    array[i] = initial_value;
+
+  return array;
 }
-
